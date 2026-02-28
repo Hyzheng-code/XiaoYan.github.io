@@ -197,7 +197,7 @@
         /* 研究方向 */
         .research-areas {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 20px;
         }
 
@@ -376,6 +376,50 @@
             border-color: var(--color-primary);
         }
 
+        .ccf-tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+
+        .ccf-a {
+            background: rgb(255, 55, 95);
+            color: white;
+        }
+
+        .ccf-b {
+            background: rgb(252, 250, 255);
+            color: #6b5b95;
+            border: 1px solid #e0d8eb;
+        }
+
+        .other-pub-list {
+            counter-reset: pub-counter;
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .other-pub-list li {
+            counter-increment: pub-counter;
+            margin-bottom: 12px;
+            padding-left: 32px;
+            position: relative;
+            font-size: 0.92rem;
+            line-height: 1.7;
+        }
+
+        .other-pub-list li::before {
+            content: "[" counter(pub-counter) "]";
+            position: absolute;
+            left: 0;
+            color: var(--color-text-light);
+            font-weight: 500;
+        }
+
         /* 学生培养 */
         .students-section {
             background: var(--color-card);
@@ -384,13 +428,17 @@
             border: 1px solid var(--color-border);
         }
 
-        .students-section p {
+        .students-section ul {
+            margin-left: 20px;
             font-size: 0.95rem;
             line-height: 1.9;
-            margin-bottom: 12px;
         }
 
-        .students-section p:last-child {
+        .students-section li {
+            margin-bottom: 8px;
+        }
+
+        .students-section li:last-child {
             margin-bottom: 0;
         }
 
@@ -425,6 +473,10 @@
                 font-size: 2.2rem;
             }
 
+            .research-areas {
+                grid-template-columns: 1fr;
+            }
+
             .highlight-item {
             }
         }
@@ -450,10 +502,10 @@
                             📧 <a href="mailto:yanxiaosunny@whu.edu.cn">yanxiaosunny@whu.edu.cn</a>
                         </span>
                         <span class="contact-item">
-                            📍 雷军科技楼 A912
+                            📍 武汉大学 雷军科技楼 A912
                         </span>
                         <span class="contact-item">
-                            🎓 <a href="https://scholar.google.com" target="_blank">Google Scholar</a>
+                            🎓 <a href="https://scholar.google.com/citations?user=rzNoyOIAAAAJ" target="_blank">Google Scholar</a>
                         </span>
                     </div>
                 </div>
@@ -472,17 +524,14 @@
                     <div class="research-card">
                         <h3>模型训练与推理</h3>
                         <p>大模型自动并行训练、高效推理框架、大规模广告模型系统</p>
-                        <div class="systems"><strong>代表系统：</strong>TensorOPT, RetroKV, FEC</div>
                     </div>
                     <div class="research-card">
                         <h3>信息检索与向量数据库</h3>
                         <p>向量化信息检索、相似性搜索、云原生分布式架构</p>
-                        <div class="systems"><strong>代表系统：</strong>Manu (OpenAI推荐)</div>
                     </div>
                     <div class="research-card">
                         <h3>图处理与图学习</h3>
                         <p>图算法执行、图神经网络训练推理、分布式图系统</p>
-                        <div class="systems"><strong>代表系统：</strong>CoroGraph, gSampler, DSP, DiskGNN</div>
                     </div>
                     <div class="research-card">
                         <h3>联邦学习</h3>
@@ -496,15 +545,15 @@
                 <h2 class="section-title">亮点成果</h2>
                 <div class="highlights">
                     <div class="highlight-item">
-                        <h3><span class="icon">🔍</span> 向量数据库 <span class="highlight-badge">NeurIPS'21 竞赛冠军</span></h3>
-                        <p>联合向量数据库领域明星创业公司 Zilliz 架构<strong>世界首款云原生分布式向量数据库 Manu</strong>，获得 OpenAI 官方推荐；获得人工智能顶会 NeurIPS'21 全球向量检索竞赛冠军。</p>
+                        <h3>向量数据库 <span class="highlight-badge">NeurIPS'21 竞赛冠军</span> <span class="highlight-badge">OpenAI 官方推荐</span></h3>
+                        <p>联合向量数据库领域明星创业公司 Zilliz 架构<strong>世界首款云原生分布式向量数据库 Manu</strong>，获得人工智能顶会 NeurIPS'21 全球向量检索竞赛冠军，获得 OpenAI 官方推荐。</p>
                         <ul>
                             <li>架构了覆盖单机内存、单机磁盘、多机分布式、云计算、边缘设备、GPU加速器的全面向量检索工具栈</li>
                             <li>相关成果在华为和微软亚洲研究院投入实用</li>
                         </ul>
                     </div>
                     <div class="highlight-item">
-                        <h3><span class="icon">🕸️</span> 图处理与图学习系统 <span class="highlight-badge">AWS DGL 集成</span></h3>
+                        <h3>图处理与图学习系统 <span class="highlight-badge">AWS DGL 集成</span></h3>
                         <p>开发了一套完整的图处理和图学习系统栈，在相关课题发表 <strong>CCF-A 类论文超过10篇</strong>。</p>
                         <ul>
                             <li>高效图算法执行引擎 CoroGraph，GPU图采样引擎 gSampler</li>
@@ -514,7 +563,7 @@
                         </ul>
                     </div>
                     <div class="highlight-item">
-                        <h3><span class="icon">🤖</span> 大模型训练和推理系统</h3>
+                        <h3>大模型训练和推理系统</h3>
                         <p>联合多家顶尖企业开发大模型系统，降低训练和推理成本：</p>
                         <ul>
                             <li><strong>TensorOPT</strong>（联合华为）：大模型自动并行训练系统</li>
@@ -530,8 +579,10 @@
             <section>
                 <h2 class="section-title">学生培养</h2>
                 <div class="students-section">
-                    <p>🎓 指导的本科和硕士生获得<strong>宾夕法尼亚大学、密歇根大学、MIT、香港中文大学</strong>等高校全奖博士。</p>
-                    <p>💼 指导的博士生入职 <strong>Meta、AWS、华为（天才少年）</strong>等顶尖企业。</p>
+                    <ul>
+                        <li>指导的本科和硕士生获得<strong>宾夕法尼亚大学、密歇根大学、MIT、香港中文大学</strong>等高校全奖博士。</li>
+                        <li>指导的博士生入职 <strong>Meta、AWS、华为（天才少年）</strong>等顶尖企业。</li>
+                    </ul>
                 </div>
             </section>
 
@@ -539,9 +590,101 @@
             <section>
                 <h2 class="section-title">代表论文</h2>
                 <div class="publications">
-                    <p style="color: var(--color-text-light); font-style: italic;">论文列表待补充...</p>
-                    <!-- 论文列表将在这里添加 -->
+                    <div class="pub-item">
+                        <p class="pub-title">DSP: Efficient GNN Training with Multiple GPUs <span class="ccf-tag ccf-a">CCF A</span></p>
+                        <p class="pub-venue">PPoPP, 2023</p>
+                    </div>
+                    <div class="pub-item">
+                        <p class="pub-title">gSampler: General and Efficient GPU-based Graph Sampling for Graph Learning <span class="ccf-tag ccf-a">CCF A</span></p>
+                        <p class="pub-venue">SOSP, 2023</p>
+                    </div>
+                    <div class="pub-item">
+                        <p class="pub-title">Face2exp: Combating Data Biases for Facial Expression Recognition <span class="ccf-tag ccf-a">CCF A</span></p>
+                        <p class="pub-venue">CVPR, 2022</p>
+                    </div>
+                    <div class="pub-item">
+                        <p class="pub-title">Manu: A Cloud Native Vector Database Management System <span class="ccf-tag ccf-a">CCF A</span></p>
+                        <p class="pub-venue">VLDB, 2022</p>
+                    </div>
+                    <div class="pub-item">
+                        <p class="pub-title">DGCL: An Efficient Communication Library for Distributed GNN Training <span class="ccf-tag ccf-a">CCF A</span></p>
+                        <p class="pub-venue">EuroSys, 2021</p>
+                    </div>
+                    <div class="pub-item">
+                        <p class="pub-title">Elastic Deep Learning in Multi-tenant GPU Clusters <span class="ccf-tag ccf-a">CCF A</span></p>
+                        <p class="pub-venue">TPDS, 2021</p>
+                    </div>
+                    <div class="pub-item">
+                        <p class="pub-title">TensorOpt: Exploring the Tradeoffs in Distributed DNN Training with Auto-parallelism <span class="ccf-tag ccf-a">CCF A</span></p>
+                        <p class="pub-venue">TPDS, 2021</p>
+                    </div>
+                    <div class="pub-item">
+                        <p class="pub-title">G-miner: An Efficient Task-oriented Graph Mining System <span class="ccf-tag ccf-a">CCF A</span></p>
+                        <p class="pub-venue">EuroSys, 2018</p>
+                    </div>
+                    <div class="pub-item">
+                        <p class="pub-title">Flexps: Flexible Parallelism Control in Parameter Server Architecture <span class="ccf-tag ccf-a">CCF A</span></p>
+                        <p class="pub-venue">VLDB, 2018</p>
+                    </div>
+                    <div class="pub-item">
+                        <p class="pub-title">Norm-ranging LSH for Maximum Inner Product Search <span class="ccf-tag ccf-a">CCF A</span></p>
+                        <p class="pub-venue">NeurIPS, 2018</p>
+                    </div>
                 </div>
+            </section>
+
+            <!-- 其他论文 -->
+            <section>
+                <h2 class="section-title">其他论文</h2>
+                <ul class="other-pub-list">
+                    <li>H Li, S Deng, <strong>X Yan</strong>, X Zhi, J Cheng. SAQ: Pushing the Limits of Vector Quantization through Code Adjustment and Dimension Segmentation. SIGMOD, 2025. <span class="ccf-tag ccf-a">CCF A</span></li>
+                    <li>Y Chen, <strong>X Yan</strong>, A Meliou, E Lo. DiskJoin: Large-scale Vector Similarity Join with SSD. SIGMOD, 2025. <span class="ccf-tag ccf-a">CCF A</span></li>
+                    <li>P Yin, Q Zhou, <strong>X Yan</strong>, C Wang, E Lo, C Li, L Lu, H Fan, W Zhou, MC Yang, J Cheng. CARINA: An Efficient CXL-Oriented Embedding Serving System for Recommendation Models. SIGMOD, 2025. <span class="ccf-tag ccf-a">CCF A</span></li>
+                    <li>M Li, <strong>X Yan</strong>, B Lu, Y Zhang, J Cheng, C Ma. Attribute Filtering in Approximate Nearest Neighbor Search: An In-depth Experimental Study. SIGMOD, 2025. <span class="ccf-tag ccf-a">CCF A</span></li>
+                    <li>R Liu, Y Wang, <strong>X Yan</strong>, H Jiang, Z Cai, M Wang, B Tang, J Li. DiskGNN: Bridging I/O Efficiency and Model Accuracy for Out-of-core GNN Training. SIGMOD, 2025. <span class="ccf-tag ccf-a">CCF A</span></li>
+                    <li>K Ma, R Liu, <strong>X Yan</strong>, Z Cai, X Song, M Wang, Y Li, J Cheng. Adaptive Parallel Training for Graph Neural Networks. PPoPP, 2025. <span class="ccf-tag ccf-a">CCF A</span></li>
+                    <li>X Zhou, <strong>X Yan</strong>, F Fu, Z Fu, T Qian, Y Zhu, Q Zhang, B Cui, J Jiang. PS-MI: Accurate, Efficient, and Private Data Valuation in Vertical Federated Learning. VLDB, 2025. <span class="ccf-tag ccf-a">CCF A</span></li>
+                    <li>H Jiang, R Liu, Z Huang, Y Wang, <strong>X Yan</strong>, Z Cai, M Wang, D Wipf. MuseGNN: Forming Scalable, Convergent GNN Layers that Minimize a Sampling-Based Energy. ICLR, 2025.</li>
+                    <li>X Wang, J Jiang, <strong>X Yan</strong>, Q Huang. TESA: A Trajectory and Semantic-aware Dynamic Heterogeneous Graph Neural Network. WWW, 2025. <span class="ccf-tag ccf-a">CCF A</span></li>
+                    <li>Q Zhang, <strong>X Yan</strong>, Y Ding, F Fu, Q Xu, Z Li, C Hu, J Jiang. Hacore: Efficient Coreset Construction with Locality Sensitive Hashing for Vertical Federated Learning. AAAI, 2025. <span class="ccf-tag ccf-a">CCF A</span></li>
+                    <li>Q Zhang, <strong>X Yan</strong>, Y Zhao, F Fu, Q Xu, Y Ding, X Zhou, C Hu, J Jiang. Model Rake: A Defense Against Stealing Attacks in Split Learning. IJCAI, 2025. <span class="ccf-tag ccf-a">CCF A</span></li>
+                    <li>X Zhou, <strong>X Yan</strong>, F Fu, X Li, H Huang, Q Xu, C Yang, B Du, T Qian, J Jiang. Hounding Data Diversity: Towards Participant Selection in Vertical Federated Learning. ICDE, 2025. <span class="ccf-tag ccf-a">CCF A</span></li>
+                    <li>Y Chi, H Wang, Y Chen, Y Yang, J Yang, Z Yang, <strong>X Yan</strong>, G Chen. PI-SQL: Enhancing Text-to-SQL with Fine-Grained Guidance from Pivot Programming Languages. EMNLP Findings, 2025. <span class="ccf-tag ccf-b">CCF B</span></li>
+                    <li>C Zheng, G Jiang, <strong>X Yan</strong>, P Yin, Q Zhou, J Cheng. GE2: A General and Efficient Knowledge Graph Embedding Learning System. SIGMOD, 2024. <span class="ccf-tag ccf-a">CCF A</span></li>
+                    <li>Q Zhou, P Yin, <strong>X Yan</strong>, C Li, G Jiang, J Cheng. Atom: An Efficient Query Serving System for Embedding-based Knowledge Graph Reasoning with Operator-Level Batching. SIGMOD, 2024. <span class="ccf-tag ccf-a">CCF A</span></li>
+                    <li>W Ning, R Cheng, <strong>X Yan</strong>, B Kao, N Huo, NAH Haldar, B Tang. Debiasing Recommendation with Personal Popularity. WWW, 2024. <span class="ccf-tag ccf-a">CCF A</span></li>
+                    <li>Y Wang, <strong>X Yan</strong>, C Hu, Q Xu, C Yang, F Fu, W Zhang, H Wang, B Du, J Jiang. Generative and Contrastive Paradigms are Complementary for Graph Self-supervised Learning. ICDE, 2024. <span class="ccf-tag ccf-a">CCF A</span></li>
+                    <li>Z Bian, <strong>X Yan</strong>, J Zhang, ML Yiu, B Tang. QSRP: Efficient Reverse Query Processing on High-Dimensional Embeddings. ICDE, 2024. <span class="ccf-tag ccf-a">CCF A</span></li>
+                    <li>Y Wang, <strong>X Yan</strong>, S Jin, H Huang, Q Xu, Q Zhang, B Du, J Jiang. Self-supervised Learning for Graph Dataset Condensation. KDD, 2024. <span class="ccf-tag ccf-a">CCF A</span></li>
+                    <li>X Zhi, <strong>X Yan</strong>, B Tang, Z Yin, Y Zhu, M Zhou. CoroGraph: Bridging Cache Efficiency and Work Efficiency for Graph Algorithm Execution. VLDB, 2023. <span class="ccf-tag ccf-a">CCF A</span></li>
+                    <li>F Wang, <strong>X Yan</strong>, ML Yiu, S Li, Z Mao, B Tang. Speeding up End-to-end Query Execution via Learning-based Progressive Cardinality Estimation. SIGMOD, 2023. <span class="ccf-tag ccf-a">CCF A</span></li>
+                    <li>K Ma, <strong>X Yan</strong>, Z Cai, Y Huang, Y Wu, J Cheng. FEC: Efficient Deep Recommendation Model Training with Flexible Embedding Communication. SIGMOD, 2023. <span class="ccf-tag ccf-a">CCF A</span></li>
+                    <li>S Zhang, R Yang, X Xiao, <strong>X Yan</strong>, B Tang. Effective and Efficient PageRank-based Positioning for Graph Visualization. SIGMOD, 2023. <span class="ccf-tag ccf-a">CCF A</span></li>
+                    <li>P Yin, <strong>X Yan</strong>, J Zhou, Q Fu, Z Cai, J Cheng, B Tang, M Wang. DGI: An Easy and Efficient Framework for GNN Model Evaluation. KDD, 2023. <span class="ccf-tag ccf-a">CCF A</span></li>
+                    <li>W Ning, <strong>X Yan</strong>, W Liu, R Cheng, R Zhang, B Tang. Multi-domain Recommendation with Embedding Disentangling and Domain Alignment. CIKM, 2023. <span class="ccf-tag ccf-b">CCF B</span></li>
+                    <li>Z Li, D Zeng, <strong>X Yan</strong>, Q Shen, B Tang. Analyzing and Combating Attribute Bias for Face Restoration. IJCAI, 2023. <span class="ccf-tag ccf-a">CCF A</span></li>
+                    <li>Q Shen, Z You, <strong>X Yan</strong>, C Zhang, K Xu, D Zeng, J Qin, B Tang. Qevis: Multi-grained Visualization of Distributed Query Execution. TVCG, 2023. <span class="ccf-tag ccf-a">CCF A</span></li>
+                    <li>J Zeng, <strong>X Yan</strong>, Y Li, M Han, B Tang. Extracting Top-Frequent and Diversified Patterns in Knowledge Graphs. TKDE, 2023. <span class="ccf-tag ccf-a">CCF A</span></li>
+                    <li>H Liu, B Tang, J Zhang, Y Deng, <strong>X Yan</strong>, X Zheng, Q Shen, D Zeng, Z Mao, ML Yiu, H Li, M Han, Q Li, Z Luo. GHive: Accelerating Analytical Query Processing in Apache Hive via CPU-GPU Heterogeneous Computing. SoCC, 2022. <span class="ccf-tag ccf-b">CCF B</span></li>
+                    <li>J Zhang, B Tang, ML Yiu, <strong>X Yan</strong>, K Li. T-levelindex: Towards Efficient Query Processing in Continuous Preference Space. SIGMOD, 2022. <span class="ccf-tag ccf-a">CCF A</span></li>
+                    <li>W Ning, R Cheng, J Shen, NAH Haldar, B Kao, <strong>X Yan</strong>, N Huo, WK Lam, B Tang. Automatic Meta-path Discovery for Effective Graph-based Recommendation. CIKM, 2022. <span class="ccf-tag ccf-b">CCF B</span></li>
+                    <li>H Yang, <strong>X Yan</strong>, X Dai, Y Chen, J Cheng. Self-enhanced GNN: Improving Graph Neural Networks Using Model Outputs. IJCNN, 2021.</li>
+                    <li>J Zeng, <strong>X Yan</strong>, M Han, B Tang. Fast Core-based Top-k Frequent Pattern Discovery in Knowledge Graphs. ICDE, 2021. <span class="ccf-tag ccf-a">CCF A</span></li>
+                    <li>W Ning, <strong>X Yan</strong>, B Tang. Towards Efficient MaxBRNN Computation for Streaming Updates. ICDE, 2021. <span class="ccf-tag ccf-a">CCF A</span></li>
+                    <li>Y Zhao, Z Liu, Y Wu, G Jiang, J Cheng, K Liu, <strong>X Yan</strong>. Timestamped State Sharing for Stream Analytics. TPDS, 2021. <span class="ccf-tag ccf-a">CCF A</span></li>
+                    <li>J Fang, H Fu, D Zeng, <strong>X Yan</strong>, Y Yan, J Liu. Combating Ambiguity for Hash-code Learning in Medical Instance Retrieval. IEEE JBHI, 2021.</li>
+                    <li>L Xiang, <strong>X Yan</strong>, L Lu, B Tang. GAIPS: Accelerating Maximum Inner Product Search with GPU. SIGIR, 2021. <span class="ccf-tag ccf-a">CCF A</span></li>
+                    <li>J Liu, <strong>X Yan</strong>, X Dai, Z Li, J Cheng, MC Yiu. Understanding and Improving Proximity Graph based Maximum Inner Product Search. AAAI, 2020. <span class="ccf-tag ccf-a">CCF A</span></li>
+                    <li>X Dai, <strong>X Yan</strong>, KKW Ng, J Liu, J Cheng. Norm-explicit Quantization: Improving Vector Quantization for Maximum Inner Product Search. AAAI, 2020. <span class="ccf-tag ccf-a">CCF A</span></li>
+                    <li>X Dai, <strong>X Yan</strong>, K Zhou, Y Wang, H Yang, J Cheng. Convolutional Embedding for Edit Distance. SIGIR, 2020. <span class="ccf-tag ccf-a">CCF A</span></li>
+                    <li>Y Meng, <strong>X Yan</strong>, W Liu, H Wu, J Cheng. Wasserstein Collaborative Filtering for Item Cold-start Recommendation. UMAP, 2020.</li>
+                    <li>Y Meng, X Dai, <strong>X Yan</strong>, J Cheng, W Liu, J Guo, B Liao, G Chen. PMD: An Optimal Transportation-based User Distance for Recommender Systems. ECIR, 2020.</li>
+                    <li>H Chen, C Li, J Fang, C Huang, J Cheng, J Zhang, Y Hou, <strong>X Yan</strong>. Grasper: A High Performance Distributed System for OLAP on Property Graphs. SoCC, 2019. <span class="ccf-tag ccf-b">CCF B</span></li>
+                    <li>Y Huang, <strong>X Yan</strong>, G Jiang, T Jin, J Cheng, A Xu, Z Liu, S Tu. Tangram: Bridging Immutable and Mutable Abstractions for Distributed Data Analytics. USENIX ATC, 2019. <span class="ccf-tag ccf-a">CCF A</span></li>
+                    <li>S Deng, <strong>X Yan</strong>, KWN Kelvin, C Jiang, J Cheng. Pyramid: A General Framework for Distributed Similarity Search on Large-scale Datasets. IEEE BigData, 2019.</li>
+                    <li>J Li, <strong>X Yan</strong>, J Zhang, A Xu, J Cheng, J Liu, KKW Ng, T Cheng. A General and Efficient Querying Method for Learning to Hash. SIGMOD, 2018. <span class="ccf-tag ccf-a">CCF A</span></li>
+                    <li>J Li, J Cheng, F Yang, Y Huang, Y Zhao, <strong>X Yan</strong>, R Zhao. Losha: A General Framework for Scalable Locality Sensitive Hashing. SIGIR, 2017. <span class="ccf-tag ccf-a">CCF A</span></li>
+                </ul>
             </section>
         </main>
 
