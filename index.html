@@ -81,15 +81,8 @@
             height: 252px;
             border-radius: 4px;
             flex-shrink: 0;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(26, 54, 93, 0.15);
-        }
-
-        .profile-photo img {
-            width: 100%;
-            height: 100%;
             object-fit: cover;
-            border-radius: 4px;
+            box-shadow: 0 10px 40px rgba(26, 54, 93, 0.15);
         }
 
         .profile-info h1 {
@@ -108,7 +101,6 @@
         }
 
         .profile-info .tags {
-            display: flex;
             flex-wrap: wrap;
             gap: 8px;
             margin-bottom: 20px;
@@ -116,7 +108,6 @@
 
         .tag {
             background: linear-gradient(135deg, var(--color-accent) 0%, #c53030 100%);
-            color: white;
             padding: 4px 12px;
             border-radius: 4px;
             font-size: 0.85rem;
@@ -132,15 +123,12 @@
         }
 
         .contact-info {
-            display: flex;
             flex-wrap: wrap;
             gap: 20px;
             font-size: 0.95rem;
         }
 
         .contact-item {
-            display: flex;
-            align-items: center;
             gap: 8px;
             color: var(--color-text-light);
         }
@@ -195,8 +183,6 @@
             margin-bottom: 24px;
             padding-bottom: 12px;
             border-bottom: 1px solid var(--color-border);
-            display: flex;
-            align-items: center;
             gap: 12px;
         }
 
@@ -233,8 +219,6 @@
             font-weight: 500;
             color: var(--color-primary);
             margin-bottom: 12px;
-            display: flex;
-            align-items: center;
             gap: 8px;
         }
 
@@ -258,7 +242,6 @@
 
         /* 亮点成果 */
         .highlights {
-            display: flex;
             flex-direction: column;
             gap: 24px;
         }
@@ -276,8 +259,6 @@
             font-weight: 500;
             color: var(--color-primary);
             margin-bottom: 12px;
-            display: flex;
-            align-items: center;
             gap: 10px;
         }
 
@@ -316,7 +297,6 @@
 
         /* 发表论文 */
         .publications {
-            display: flex;
             flex-direction: column;
             gap: 20px;
         }
@@ -368,7 +348,6 @@
         .pub-venue .venue-tag {
             font-style: normal;
             background: var(--color-primary);
-            color: white;
             padding: 2px 8px;
             border-radius: 3px;
             font-size: 0.75rem;
@@ -378,7 +357,6 @@
 
         .pub-links {
             margin-top: 10px;
-            display: flex;
             gap: 10px;
         }
 
@@ -395,7 +373,6 @@
 
         .pub-link:hover {
             background: var(--color-primary);
-            color: white;
             border-color: var(--color-primary);
         }
 
@@ -419,7 +396,6 @@
 
         /* 页脚 */
         footer {
-            text-align: center;
             padding: 40px 0;
             border-top: 1px solid var(--color-border);
             color: var(--color-text-light);
@@ -430,8 +406,6 @@
         @media (max-width: 768px) {
             .profile {
                 flex-direction: column;
-                align-items: center;
-                text-align: center;
             }
 
             .profile-info .affiliation {
@@ -442,11 +416,9 @@
             }
 
             .profile-info .tags {
-                justify-content: center;
             }
 
             .contact-info {
-                justify-content: center;
             }
 
             .profile-info h1 {
@@ -454,7 +426,6 @@
             }
 
             .highlight-item {
-                padding: 20px;
             }
         }
     </style>
@@ -463,9 +434,7 @@
     <div class="container">
         <header>
             <div class="profile">
-                <div class="profile-photo">
-                    <img src="Photo-XiaoYan.jpg" alt="晏潇教授照片">
-                </div>
+                <img src="Photo-XiaoYan.jpg" alt="晏潇" class="profile-photo">
                 <div class="profile-info">
                     <h1>晏潇</h1>
                     <p class="title">研究员 / 副教授 / 博士生导师</p>
@@ -502,7 +471,7 @@
                 <div class="research-areas">
                     <div class="research-card">
                         <h3>模型训练与推理</h3>
-                        <p>自动并行训练、高效推理框架、大规模广告模型</p>
+                        <p>大模型自动并行训练、高效推理框架、大规模广告模型系统</p>
                         <div class="systems"><strong>代表系统：</strong>TensorOPT, RetroKV, FEC</div>
                     </div>
                     <div class="research-card">
@@ -517,8 +486,7 @@
                     </div>
                     <div class="research-card">
                         <h3>联邦学习</h3>
-                        <p>隐私保护机器学习、分布式协作训练、安全聚合</p>
-                        <div class="systems"><strong>代表系统：</strong>待补充</div>
+                        <p>分布式隐私保护机器学习、联邦优化算法</p>
                     </div>
                 </div>
             </section>
