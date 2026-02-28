@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>张三教授 | 某某大学</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #1a365d;
+            --color-accent: #c53030;
+            --color-text: #2d3748;
+            --color-text-light: #718096;
+            --color-bg: #faf9f7;
+            --color-card: #ffffff;
+            --color-border: #e2e8f0;
+            --font-serif: 'Crimson Pro', 'Noto Serif SC', Georgia, serif;
+            --font-sans: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        /* 顶部装饰线 */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* 头部区域 */
+        header {
+            padding: 80px 0 60px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .profile {
+            display: flex;
+            gap: 48px;
+            align-items: flex-start;
+        }
+
+        .profile-photo {
+            width: 180px;
+            height: 220px;
+            background: linear-gradient(135deg, var(--color-primary) 0%, #2c5282 100%);
+            border-radius: 4px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 10px 40px rgba(26, 54, 93, 0.15);
+        }
+
+        .profile-info h1 {
+            font-family: var(--font-serif);
+            font-size: 2.8rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 8px;
+            letter-spacing: 0.02em;
+        }
+
+        .profile-info .title {
+            font-size: 1.1rem;
+            color: var(--color-text-light);
+            margin-bottom: 20px;
+        }
+
+        .profile-info .affiliation {
+            font-size: 1rem;
+            color: var(--color-text);
+            margin-bottom: 24px;
+            padding-left: 16px;
+            border-left: 3px solid var(--color-accent);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            font-size: 0.95rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--color-text-light);
+        }
+
+        .contact-item a {
+            color: var(--color-primary);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .contact-item a:hover {
+            border-color: var(--color-primary);
+        }
+
+        /* 主要内容区 */
+        main {
+            padding-bottom: 80px;
+        }
+
+        section {
+            margin-bottom: 56px;
+            animation: fadeInUp 0.8s ease-out;
+            animation-fill-mode: backwards;
+        }
+
+        section:nth-child(1) { animation-delay: 0.1s; }
+        section:nth-child(2) { animation-delay: 0.2s; }
+        section:nth-child(3) { animation-delay: 0.3s; }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--color-border);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: var(--color-accent);
+            border-radius: 2px;
+        }
+
+        /* 研究方向 */
+        .research-areas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .research-card {
+            background: var(--color-card);
+            padding: 24px;
+            border-radius: 8px;
+            border: 1px solid var(--color-border);
+            transition: all 0.3s ease;
+        }
+
+        .research-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+        }
+
+        .research-card h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--color-primary);
+            margin-bottom: 12px;
+        }
+
+        .research-card p {
+            font-size: 0.95rem;
+            color: var(--color-text-light);
+        }
+
+        /* 亮点成果 */
+        .highlights {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .highlight-item {
+            background: var(--color-card);
+            padding: 20px 24px;
+            border-radius: 8px;
+            border-left: 4px solid var(--color-accent);
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .highlight-year {
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            flex-shrink: 0;
+            min-width: 60px;
+        }
+
+        .highlight-content h4 {
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .highlight-content p {
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+        }
+
+        /* 发表论文 */
+        .publications {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .pub-item {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .pub-item:last-child {
+            border-bottom: none;
+        }
+
+        .pub-title {
+            font-weight: 500;
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+            color: var(--color-text);
+        }
+
+        .pub-authors {
+            font-size: 0.95rem;
+            color: var(--color-text-light);
+            margin-bottom: 6px;
+        }
+
+        .pub-authors .highlight-author {
+            color: var(--color-primary);
+            font-weight: 500;
+        }
+
+        .pub-venue {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 0.95rem;
+            color: var(--color-accent);
+        }
+
+        .pub-links {
+            margin-top: 10px;
+            display: flex;
+            gap: 12px;
+        }
+
+        .pub-link {
+            font-size: 0.85rem;
+            padding: 4px 12px;
+            background: var(--color-bg);
+            color: var(--color-primary);
+            text-decoration: none;
+            border-radius: 4px;
+            border: 1px solid var(--color-border);
+            transition: all 0.2s;
+        }
+
+        .pub-link:hover {
+            background: var(--color-primary);
+            color: white;
+            border-color: var(--color-primary);
+        }
+
+        /* 页脚 */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid var(--color-border);
+            color: var(--color-text-light);
+            font-size: 0.9rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .profile {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .profile-info .affiliation {
+                border-left: none;
+                padding-left: 0;
+                border-top: 3px solid var(--color-accent);
+                padding-top: 16px;
+            }
+
+            .contact-info {
+                justify-content: center;
+            }
+
+            .profile-info h1 {
+                font-size: 2.2rem;
+            }
+
+            .highlight-item {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="profile">
+                <div class="profile-photo">
+                    请替换为<br>教授照片<br>(180×220)
+                </div>
+                <div class="profile-info">
+                    <h1>张三</h1>
+                    <p class="title">教授 / 博士生导师</p>
+                    <p class="affiliation">
+                        某某大学 计算机科学与技术学院<br>
+                        人工智能研究中心
+                    </p>
+                    <div class="contact-info">
+                        <span class="contact-item">
+                            📧 <a href="mailto:zhangsan@example.edu.cn">zhangsan@example.edu.cn</a>
+                        </span>
+                        <span class="contact-item">
+                            🔗 <a href="https://scholar.google.com" target="_blank">Google Scholar</a>
+                        </span>
+                        <span class="contact-item">
+                            📍 某某楼 A512
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!-- 研究方向 -->
+            <section>
+                <h2 class="section-title">研究方向</h2>
+                <div class="research-areas">
+                    <div class="research-card">
+                        <h3>🔬 深度学习</h3>
+                        <p>专注于神经网络架构设计、模型优化与高效推理技术研究</p>
+                    </div>
+                    <div class="research-card">
+                        <h3>🤖 自然语言处理</h3>
+                        <p>研究大语言模型、文本生成与理解、多语言处理</p>
+                    </div>
+                    <div class="research-card">
+                        <h3>👁️ 计算机视觉</h3>
+                        <p>图像识别、目标检测、视觉-语言跨模态学习</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 亮点成果 -->
+            <section>
+                <h2 class="section-title">亮点成果</h2>
+                <div class="highlights">
+                    <div class="highlight-item">
+                        <span class="highlight-year">2024</span>
+                        <div class="highlight-content">
+                            <h4>国家自然科学基金重点项目</h4>
+                            <p>项目名称：大规模预训练模型的高效推理与优化研究</p>
+                        </div>
+                    </div>
+                    <div class="highlight-item">
+                        <span class="highlight-year">2023</span>
+                        <div class="highlight-content">
+                            <h4>ACM SIGKDD 最佳论文奖</h4>
+                            <p>论文题目：基于图神经网络的知识推理方法研究</p>
+                        </div>
+                    </div>
+                    <div class="highlight-item">
+                        <span class="highlight-year">2022</span>
+                        <div class="highlight-content">
+                            <h4>省部级科技进步一等奖</h4>
+                            <p>成果名称：智能问答系统关键技术及应用</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 代表论文 -->
+            <section>
+                <h2 class="section-title">代表论文</h2>
+                <div class="publications">
+                    <div class="pub-item">
+                        <p class="pub-title">Efficient Transformer Architecture for Large-Scale Language Understanding</p>
+                        <p class="pub-authors"><span class="highlight-author">San Zhang</span>, Wei Li, Ming Wang, et al.</p>
+                        <p class="pub-venue">NeurIPS 2024</p>
+                        <div class="pub-links">
+                            <a href="#" class="pub-link">PDF</a>
+                            <a href="#" class="pub-link">Code</a>
+                            <a href="#" class="pub-link">BibTeX</a>
+                        </div>
+                    </div>
+                    <div class="pub-item">
+                        <p class="pub-title">Graph Neural Networks for Knowledge Reasoning: A Comprehensive Survey</p>
+                        <p class="pub-authors">Wei Li, <span class="highlight-author">San Zhang*</span>, Hong Chen</p>
+                        <p class="pub-venue">ACM Computing Surveys, 2023</p>
+                        <div class="pub-links">
+                            <a href="#" class="pub-link">PDF</a>
+                            <a href="#" class="pub-link">BibTeX</a>
+                        </div>
+                    </div>
+                    <div class="pub-item">
+                        <p class="pub-title">Multi-Modal Learning with Vision-Language Pre-training</p>
+                        <p class="pub-authors"><span class="highlight-author">San Zhang</span>, Hua Liu, Jie Yang, et al.</p>
+                        <p class="pub-venue">CVPR 2023 (Oral)</p>
+                        <div class="pub-links">
+                            <a href="#" class="pub-link">PDF</a>
+                            <a href="#" class="pub-link">Code</a>
+                            <a href="#" class="pub-link">Video</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2024 张三 | 最后更新: 2024年12月</p>
+        </footer>
+    </div>
+</body>
+</html>
