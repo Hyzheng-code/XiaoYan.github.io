@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>张三教授 | 某某大学</title>
+    <title>晏潇 | 武汉大学</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --color-primary: #1a365d;
-            --color-accent: #c53030;
+            --color-accent: #9b2c2c;
             --color-text: #2d3748;
             --color-text-light: #718096;
             --color-bg: #faf9f7;
             --color-card: #ffffff;
             --color-border: #e2e8f0;
+            --color-highlight: #fef3c7;
             --font-serif: 'Crimson Pro', 'Noto Serif SC', Georgia, serif;
             --font-sans: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
         }
@@ -47,7 +48,7 @@
         }
 
         .container {
-            max-width: 900px;
+            max-width: 960px;
             margin: 0 auto;
             padding: 0 24px;
         }
@@ -77,18 +78,18 @@
 
         .profile-photo {
             width: 180px;
-            height: 220px;
-            background: linear-gradient(135deg, var(--color-primary) 0%, #2c5282 100%);
+            height: 252px;
             border-radius: 4px;
             flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 14px;
-            text-align: center;
-            padding: 20px;
+            overflow: hidden;
             box-shadow: 0 10px 40px rgba(26, 54, 93, 0.15);
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 4px;
         }
 
         .profile-info h1 {
@@ -103,7 +104,23 @@
         .profile-info .title {
             font-size: 1.1rem;
             color: var(--color-text-light);
+            margin-bottom: 16px;
+        }
+
+        .profile-info .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
             margin-bottom: 20px;
+        }
+
+        .tag {
+            background: linear-gradient(135deg, var(--color-accent) 0%, #c53030 100%);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 400;
         }
 
         .profile-info .affiliation {
@@ -117,7 +134,7 @@
         .contact-info {
             display: flex;
             flex-wrap: wrap;
-            gap: 24px;
+            gap: 20px;
             font-size: 0.95rem;
         }
 
@@ -137,6 +154,22 @@
 
         .contact-item a:hover {
             border-color: var(--color-primary);
+        }
+
+        /* 简介区域 */
+        .bio {
+            margin-top: 40px;
+            padding: 24px 28px;
+            background: var(--color-card);
+            border-radius: 8px;
+            border: 1px solid var(--color-border);
+            font-size: 0.98rem;
+            line-height: 2;
+        }
+
+        .bio-highlight {
+            color: var(--color-primary);
+            font-weight: 500;
         }
 
         /* 主要内容区 */
@@ -178,7 +211,7 @@
         /* 研究方向 */
         .research-areas {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
         }
 
@@ -200,6 +233,9 @@
             font-weight: 500;
             color: var(--color-primary);
             margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .research-card p {
@@ -207,40 +243,75 @@
             color: var(--color-text-light);
         }
 
+        .research-card .systems {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px dashed var(--color-border);
+            font-size: 0.85rem;
+            color: var(--color-text-light);
+        }
+
+        .research-card .systems strong {
+            color: var(--color-text);
+            font-weight: 500;
+        }
+
         /* 亮点成果 */
         .highlights {
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 24px;
         }
 
         .highlight-item {
             background: var(--color-card);
-            padding: 20px 24px;
+            padding: 24px 28px;
             border-radius: 8px;
             border-left: 4px solid var(--color-accent);
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
         }
 
-        .highlight-year {
-            font-family: var(--font-serif);
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--color-primary);
-            flex-shrink: 0;
-            min-width: 60px;
-        }
-
-        .highlight-content h4 {
+        .highlight-item h3 {
+            font-size: 1.15rem;
             font-weight: 500;
-            margin-bottom: 4px;
+            color: var(--color-primary);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .highlight-content p {
-            font-size: 0.9rem;
+        .highlight-item h3 .icon {
+            font-size: 1.3rem;
+        }
+
+        .highlight-item p {
+            font-size: 0.95rem;
+            color: var(--color-text);
+            margin-bottom: 8px;
+            line-height: 1.9;
+        }
+
+        .highlight-item ul {
+            margin-top: 12px;
+            margin-left: 20px;
             color: var(--color-text-light);
+            font-size: 0.9rem;
+        }
+
+        .highlight-item ul li {
+            margin-bottom: 6px;
+        }
+
+        .highlight-badge {
+            display: inline-block;
+            background: var(--color-highlight);
+            color: #92400e;
+            padding: 2px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-left: 8px;
         }
 
         /* 发表论文 */
@@ -250,8 +321,18 @@
             gap: 20px;
         }
 
+        .pub-year-group h3 {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            color: var(--color-primary);
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--color-primary);
+            display: inline-block;
+        }
+
         .pub-item {
-            padding: 20px 0;
+            padding: 16px 0;
             border-bottom: 1px solid var(--color-border);
         }
 
@@ -261,13 +342,13 @@
 
         .pub-title {
             font-weight: 500;
-            font-size: 1.05rem;
+            font-size: 1.02rem;
             margin-bottom: 8px;
             color: var(--color-text);
         }
 
         .pub-authors {
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             color: var(--color-text-light);
             margin-bottom: 6px;
         }
@@ -284,14 +365,25 @@
             color: var(--color-accent);
         }
 
+        .pub-venue .venue-tag {
+            font-style: normal;
+            background: var(--color-primary);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            margin-left: 8px;
+            font-family: var(--font-sans);
+        }
+
         .pub-links {
             margin-top: 10px;
             display: flex;
-            gap: 12px;
+            gap: 10px;
         }
 
         .pub-link {
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             padding: 4px 12px;
             background: var(--color-bg);
             color: var(--color-primary);
@@ -305,6 +397,24 @@
             background: var(--color-primary);
             color: white;
             border-color: var(--color-primary);
+        }
+
+        /* 学生培养 */
+        .students-section {
+            background: var(--color-card);
+            padding: 24px 28px;
+            border-radius: 8px;
+            border: 1px solid var(--color-border);
+        }
+
+        .students-section p {
+            font-size: 0.95rem;
+            line-height: 1.9;
+            margin-bottom: 12px;
+        }
+
+        .students-section p:last-child {
+            margin-bottom: 0;
         }
 
         /* 页脚 */
@@ -331,6 +441,10 @@
                 padding-top: 16px;
             }
 
+            .profile-info .tags {
+                justify-content: center;
+            }
+
             .contact-info {
                 justify-content: center;
             }
@@ -340,8 +454,7 @@
             }
 
             .highlight-item {
-                flex-direction: column;
-                gap: 8px;
+                padding: 20px;
             }
         }
     </style>
@@ -351,27 +464,34 @@
         <header>
             <div class="profile">
                 <div class="profile-photo">
-                    请替换为<br>教授照片<br>(180×220)
+                    <img src="Photo-XiaoYan.jpg" alt="晏潇教授照片">
                 </div>
                 <div class="profile-info">
-                    <h1>张三</h1>
-                    <p class="title">教授 / 博士生导师</p>
+                    <h1>晏潇</h1>
+                    <p class="title">研究员 / 副教授 / 博士生导师</p>
+                    <div class="tags">
+                        <span class="tag">国家海外优青</span>
+                    </div>
                     <p class="affiliation">
-                        某某大学 计算机科学与技术学院<br>
-                        人工智能研究中心
+                        武汉大学 数学与智能研究院<br>
+                        专业技术正高四级岗
                     </p>
                     <div class="contact-info">
                         <span class="contact-item">
-                            📧 <a href="mailto:zhangsan@example.edu.cn">zhangsan@example.edu.cn</a>
+                            📧 <a href="mailto:yanxiaosunny@whu.edu.cn">yanxiaosunny@whu.edu.cn</a>
                         </span>
                         <span class="contact-item">
-                            🔗 <a href="https://scholar.google.com" target="_blank">Google Scholar</a>
+                            📍 雷军科技楼 A912
                         </span>
                         <span class="contact-item">
-                            📍 某某楼 A512
+                            🎓 <a href="https://scholar.google.com" target="_blank">Google Scholar</a>
                         </span>
                     </div>
                 </div>
+            </div>
+
+            <div class="bio">
+                晏潇博士，<span class="bio-highlight">2020年于香港中文大学获得博士学位</span>。2020年-2023年于南方科技大学计算机系任副研究员；2024年至2025年4月于香港博智感知交互研究中心任博士后研究员。主要研究方向是<span class="bio-highlight">数据库与机器学习系统</span>，专注提高系统效率。目前已发表<span class="bio-highlight">CCF-A类论文60余篇</span>，涵盖SOSP、PPoPP、SIGMOD、VLDB等系统和数据领域旗舰会议。担任VLDB、ICML、VLDBJ等10多个著名会议期刊的审稿人。研发的系统和技术在亚马逊云（AWS）、华为、微软亚洲研究院、Zilliz等公司投入实用，并与阿里、腾讯、美团、Meta等企业持续合作推动研究落地。
             </div>
         </header>
 
@@ -381,16 +501,24 @@
                 <h2 class="section-title">研究方向</h2>
                 <div class="research-areas">
                     <div class="research-card">
-                        <h3>🔬 深度学习</h3>
-                        <p>专注于神经网络架构设计、模型优化与高效推理技术研究</p>
+                        <h3>模型训练与推理</h3>
+                        <p>自动并行训练、高效推理框架、大规模广告模型</p>
+                        <div class="systems"><strong>代表系统：</strong>TensorOPT, RetroKV, FEC</div>
                     </div>
                     <div class="research-card">
-                        <h3>🤖 自然语言处理</h3>
-                        <p>研究大语言模型、文本生成与理解、多语言处理</p>
+                        <h3>信息检索与向量数据库</h3>
+                        <p>向量化信息检索、相似性搜索、云原生分布式架构</p>
+                        <div class="systems"><strong>代表系统：</strong>Manu (OpenAI推荐)</div>
                     </div>
                     <div class="research-card">
-                        <h3>👁️ 计算机视觉</h3>
-                        <p>图像识别、目标检测、视觉-语言跨模态学习</p>
+                        <h3>图处理与图学习</h3>
+                        <p>图算法执行、图神经网络训练推理、分布式图系统</p>
+                        <div class="systems"><strong>代表系统：</strong>CoroGraph, gSampler, DSP, DiskGNN</div>
+                    </div>
+                    <div class="research-card">
+                        <h3>联邦学习</h3>
+                        <p>隐私保护机器学习、分布式协作训练、安全聚合</p>
+                        <div class="systems"><strong>代表系统：</strong>待补充</div>
                     </div>
                 </div>
             </section>
@@ -400,26 +528,42 @@
                 <h2 class="section-title">亮点成果</h2>
                 <div class="highlights">
                     <div class="highlight-item">
-                        <span class="highlight-year">2024</span>
-                        <div class="highlight-content">
-                            <h4>国家自然科学基金重点项目</h4>
-                            <p>项目名称：大规模预训练模型的高效推理与优化研究</p>
-                        </div>
+                        <h3><span class="icon">🔍</span> 向量数据库 <span class="highlight-badge">NeurIPS'21 竞赛冠军</span></h3>
+                        <p>联合向量数据库领域明星创业公司 Zilliz 架构<strong>世界首款云原生分布式向量数据库 Manu</strong>，获得 OpenAI 官方推荐；获得人工智能顶会 NeurIPS'21 全球向量检索竞赛冠军。</p>
+                        <ul>
+                            <li>架构了覆盖单机内存、单机磁盘、多机分布式、云计算、边缘设备、GPU加速器的全面向量检索工具栈</li>
+                            <li>相关成果在华为和微软亚洲研究院投入实用</li>
+                        </ul>
                     </div>
                     <div class="highlight-item">
-                        <span class="highlight-year">2023</span>
-                        <div class="highlight-content">
-                            <h4>ACM SIGKDD 最佳论文奖</h4>
-                            <p>论文题目：基于图神经网络的知识推理方法研究</p>
-                        </div>
+                        <h3><span class="icon">🕸️</span> 图处理与图学习系统 <span class="highlight-badge">AWS DGL 集成</span></h3>
+                        <p>开发了一套完整的图处理和图学习系统栈，在相关课题发表 <strong>CCF-A 类论文超过10篇</strong>。</p>
+                        <ul>
+                            <li>高效图算法执行引擎 CoroGraph，GPU图采样引擎 gSampler</li>
+                            <li>分布式图通信引擎 DGCL，分布式图神经网络训练系统 DSP 和 ATP</li>
+                            <li>基于磁盘的图模型训练系统 DiskGNN，图模型推理框架 DGI、Atom、SG-Serve</li>
+                            <li>成果被整合进全球知名的亚马逊云 DGL 图学习平台，并在华为公司投入实用</li>
+                        </ul>
                     </div>
                     <div class="highlight-item">
-                        <span class="highlight-year">2022</span>
-                        <div class="highlight-content">
-                            <h4>省部级科技进步一等奖</h4>
-                            <p>成果名称：智能问答系统关键技术及应用</p>
-                        </div>
+                        <h3><span class="icon">🤖</span> 大模型训练和推理系统</h3>
+                        <p>联合多家顶尖企业开发大模型系统，降低训练和推理成本：</p>
+                        <ul>
+                            <li><strong>TensorOPT</strong>（联合华为）：大模型自动并行训练系统</li>
+                            <li><strong>RetroKV</strong>（联合微软亚洲研究院）：基于稀疏注意力的高效大模型推理框架</li>
+                            <li><strong>MTGenRec / MTServe</strong>（联合美团）：大型广告模型训练和推理系统</li>
+                            <li><strong>FEC / RECcompile</strong>（联合 Meta）：大型广告模型并行训练系统</li>
+                        </ul>
                     </div>
+                </div>
+            </section>
+
+            <!-- 学生培养 -->
+            <section>
+                <h2 class="section-title">学生培养</h2>
+                <div class="students-section">
+                    <p>🎓 指导的本科和硕士生获得<strong>宾夕法尼亚大学、密歇根大学、MIT、香港中文大学</strong>等高校全奖博士。</p>
+                    <p>💼 指导的博士生入职 <strong>Meta、AWS、华为（天才少年）</strong>等顶尖企业。</p>
                 </div>
             </section>
 
@@ -427,41 +571,14 @@
             <section>
                 <h2 class="section-title">代表论文</h2>
                 <div class="publications">
-                    <div class="pub-item">
-                        <p class="pub-title">Efficient Transformer Architecture for Large-Scale Language Understanding</p>
-                        <p class="pub-authors"><span class="highlight-author">San Zhang</span>, Wei Li, Ming Wang, et al.</p>
-                        <p class="pub-venue">NeurIPS 2024</p>
-                        <div class="pub-links">
-                            <a href="#" class="pub-link">PDF</a>
-                            <a href="#" class="pub-link">Code</a>
-                            <a href="#" class="pub-link">BibTeX</a>
-                        </div>
-                    </div>
-                    <div class="pub-item">
-                        <p class="pub-title">Graph Neural Networks for Knowledge Reasoning: A Comprehensive Survey</p>
-                        <p class="pub-authors">Wei Li, <span class="highlight-author">San Zhang*</span>, Hong Chen</p>
-                        <p class="pub-venue">ACM Computing Surveys, 2023</p>
-                        <div class="pub-links">
-                            <a href="#" class="pub-link">PDF</a>
-                            <a href="#" class="pub-link">BibTeX</a>
-                        </div>
-                    </div>
-                    <div class="pub-item">
-                        <p class="pub-title">Multi-Modal Learning with Vision-Language Pre-training</p>
-                        <p class="pub-authors"><span class="highlight-author">San Zhang</span>, Hua Liu, Jie Yang, et al.</p>
-                        <p class="pub-venue">CVPR 2023 (Oral)</p>
-                        <div class="pub-links">
-                            <a href="#" class="pub-link">PDF</a>
-                            <a href="#" class="pub-link">Code</a>
-                            <a href="#" class="pub-link">Video</a>
-                        </div>
-                    </div>
+                    <p style="color: var(--color-text-light); font-style: italic;">论文列表待补充...</p>
+                    <!-- 论文列表将在这里添加 -->
                 </div>
             </section>
         </main>
 
         <footer>
-            <p>© 2024 张三 | 最后更新: 2024年12月</p>
+            <p>© 2026 晏潇 | 武汉大学数学与智能研究院</p>
         </footer>
     </div>
 </body>
